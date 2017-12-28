@@ -18,4 +18,8 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+    Route::get('/send/{id}', [
+    	'uses' => 'InvitationsController@send',
+    	'as' => 'send.invitation'
+    ]);
 });
