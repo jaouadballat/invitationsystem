@@ -181,9 +181,11 @@
                                                     <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">{{ __('voyager.generic.view') }}</span>
                                                 </a>
                                             @endcan
-                                             <a href="{{ route('send.invitation', $data->{$data->getKeyName()}) }}"  class="btn btn-sm btn-success pull-right">
+                                            @if(\App\Invitation::find($data->{$data->getKeyName()})->send_at == null)
+                                                <a href="{{ route('send.invitation', $data->{$data->getKeyName()}) }}"  class="btn btn-sm btn-success pull-right">
                                                     <i class="voyager-paper-plane"></i> <span class="hidden-xs hidden-sm">Send</span>
-                                            </a>
+                                                </a>
+                                            @endif
                                         </td>
                                     </tr>
                                     @endforeach
