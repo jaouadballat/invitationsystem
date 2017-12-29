@@ -22,7 +22,12 @@ Route::group(['prefix' => 'admin'], function () {
     	'uses' => 'InvitationsController@send',
     	'as' => 'send.invitation'
     ]);
+Route::get('/calendar', 'EventsController@calendar')->name('calendar');
 });
 
 Route::get('/accept/{invitation}', 'InvitationsController@accept');
 Route::get('/reject/{invitation}', 'InvitationsController@reject');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
