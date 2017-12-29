@@ -23,3 +23,6 @@ Route::group(['prefix' => 'admin'], function () {
     	'as' => 'send.invitation'
     ]);
 });
+
+Route::get('/accept/{invitation}', 'InvitationsController@accept');
+Route::get('/reject/{invitation}', 'InvitationsController@reject');
